@@ -108,6 +108,24 @@ input.onGesture(Gesture.TiltRight, function () {
         . # # # .
         `)
 })
+input.onPinPressed(TouchPin.P2, function () {
+    basic.showLeds(`
+        . . # . .
+        . . # . .
+        # . # . #
+        . # # # .
+        . . # . .
+        `)
+})
+input.onPinPressed(TouchPin.P1, function () {
+    basic.showLeds(`
+        . . . . #
+        # . . # .
+        # . # . .
+        # # . . .
+        # # # # .
+        `)
+})
 input.onGesture(Gesture.TiltLeft, function () {
     basic.showLeds(`
         . . . . .
@@ -202,6 +220,14 @@ basic.forever(function () {
             # . . . #
             . # # # .
             `)
+    }
+    basic.pause(60000)
+})
+basic.forever(function () {
+    if (input.lightLevel() >= 90) {
+        basic.showString("licht")
+    } else if (input.lightLevel() < 90) {
+        basic.showString("donker")
     }
     basic.pause(60000)
 })
